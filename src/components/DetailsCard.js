@@ -8,7 +8,10 @@ import Tooltip from "@mui/material/Tooltip";
 
 export default function DetailsCard(props) {
   return (
-    <Card variant="outlined" sx={{ minWidth: 275 }}>
+    <Card variant="outlined" 
+    sx={{ 
+      minWidth: 275,
+    }}>
       <CardContent>
         <Typography variant="h5" component="div">
           {props.title}
