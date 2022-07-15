@@ -1,12 +1,15 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import Homepage from './pages/Homepage';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Homepage from "./pages/Homepage";
+import { GameProvider } from "./Context/GameContext";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Homepage />
+      <GameProvider>
+        <Navbar />
+        <Homepage />
+      </GameProvider>
     </div>
   );
 }

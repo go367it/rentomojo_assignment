@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import DetailsCard from "../components/DetailsCard";
 import Grid from "@mui/material/Grid";
 import { Paper, Box } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
+import FilterTools from "../components/FilterTools";
+// importing context
+import GameContext from "../Context/GameContext";
 
 const Homepage = () => {
-  const [data, setData] = useState([]);
+
+  const {details, updateDetails} = useContext(GameContext)
 
   useEffect(() => {
     const config = {
@@ -16,7 +20,7 @@ const Homepage = () => {
     axios(config)
       .then((res) => {
         console.log(res.data.slice(1, res.data.length));
-        setData(res.data.slice(1, res.data.length));
+        updateDetails(res.data.slice(1, res.data.length))
       })
       .catch((err) => {
         console.log(err);
@@ -30,11 +34,12 @@ const Homepage = () => {
         padding: "10px",
       }}
     >
+      <FilterTools />
       <Grid container spacing={2}>
-        {data.length > 0 ? (
-          data.map((j) => {
+        {details.length > 0 ? (
+          details.map((j) => {
             return (
-              <Grid key={j.id} item xs={4}>
+              <Grid key={j.id} item xs={12} md={6} lg={4}>
                 <DetailsCard
                   key={j.id}
                   title={j.title}
