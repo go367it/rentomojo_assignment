@@ -8,10 +8,12 @@ import Tooltip from "@mui/material/Tooltip";
 
 export default function DetailsCard(props) {
   return (
-    <Card variant="outlined" 
-    sx={{ 
-      minWidth: 275,
-    }}>
+    <Card
+      variant="outlined"
+      sx={{
+        minWidth: 275,
+      }}
+    >
       <CardContent>
         <Typography variant="h5" component="div">
           {props.title}
@@ -21,14 +23,14 @@ export default function DetailsCard(props) {
         </Typography>
         <Typography variant="body2">
           <Stack direction="row" spacing={1}>
-            <Tooltip title="Genre of the game" placement="top" arrow>
-              <Chip label={props.genre} />
-            </Tooltip>
             <Tooltip title="Overall Score" placement="top" arrow>
               <Chip label={props.score} />
             </Tooltip>
             <Tooltip title="Editors choice" placement="top" arrow>
               <Chip label={props.editors_choice} />
+            </Tooltip>
+            <Tooltip title="Genre of the game" placement="top" arrow>
+              <Chip label={props.genre} />
             </Tooltip>
           </Stack>
         </Typography>

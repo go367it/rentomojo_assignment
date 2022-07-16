@@ -11,7 +11,7 @@ import FilterContext from "../Context/FilterContext";
 
 const Homepage = () => {
   // defining global state
-  const { details, updateDetails } = useContext(GameContext);
+  const { details, updateDetails, updateBackupDetails } = useContext(GameContext);
   const { scoreState } = useContext(FilterContext);
 
   // when the components on to the screen
@@ -32,6 +32,7 @@ const Homepage = () => {
           return a.score - b.score;
         });
         updateDetails(data); // updating the global state for game details
+        updateBackupDetails(data); // updating backupDetails global state
       })
       .catch((err) => {
         console.log(err);
@@ -57,11 +58,10 @@ const Homepage = () => {
               .sort(function (a, b) {
                 return a.score - b.score;
               })
-              .map((j) => {
+              .map((j, index) => {
                 return (
-                  <Grid key={j.id} item xs={12} sm={6} md={6} lg={4}>
+                  <Grid key={index} item xs={12} sm={6} md={6} lg={4}>
                     <DetailsCard
-                      key={j.id}
                       title={j.title}
                       platform={j.platform}
                       genre={j.genre}
