@@ -1,20 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Stack, Box, Button } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import FilterContext from "../Context/FilterContext";
 
-export default function FilterTools () {
-  const [platform, setPlatform] = useState("");
-
-  const handleChangePlatform = (event) => {
-    setPlatform(event.target.value);
-  };
+export default function FilterTools() {
 
   return (
     <Box
@@ -26,31 +17,10 @@ export default function FilterTools () {
         {/* for selecting score  */}
 
         <ScoreFilter />
-
-        {/* for selecting platform  */}
-
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small">Platform</InputLabel>
-          <Select
-            labelId="demo-select-small"
-            id="demo-select-small"
-            value={platform}
-            label="Age"
-            onChange={handleChangePlatform}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
       </Stack>
     </Box>
   );
-};
-
+}
 
 // function for alert slider
 const Alert = React.forwardRef(function Alert(props, ref) {
