@@ -5,13 +5,16 @@ import Grid from "@mui/material/Grid";
 import { Paper, Box } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import FilterTools from "../components/FilterTools";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 // importing gamecontextand filterContext for managing global state
 import GameContext from "../Context/GameContext";
 import FilterContext from "../Context/FilterContext";
 
 const Homepage = () => {
   // defining global state
-  const { details, updateDetails, updateBackupDetails } = useContext(GameContext);
+  const { details, updateDetails, updateBackupDetails } =
+    useContext(GameContext);
   const { scoreState } = useContext(FilterContext);
 
   // when the components on to the screen
@@ -94,18 +97,13 @@ const Homepage = () => {
           )
         ) : (
           // for displaying the loading state
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              justifyItems: "center",
-            }}
-          >
-            <Box>
-              <CircularProgress color="secondary" />
-              Loading ...
-            </Box>
-          </Box>
+          <Stack sx={{
+            marginTop:'1rem',
+            marginLeft: '1.5rem',
+            width: '100%'
+          }} spacing={2}>
+            <Alert severity="info">No Results Found - Please Try Again!</Alert>
+          </Stack>
         )}
       </Grid>
     </Paper>
