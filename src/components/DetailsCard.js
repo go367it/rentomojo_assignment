@@ -12,25 +12,47 @@ export default function DetailsCard(props) {
       variant="outlined"
       sx={{
         minWidth: 275,
+        border: '1px solid #f8bbd0'
       }}
     >
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography sx={{ color: "#f06292" }} variant="h5" component="div">
           {props.title}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        <Typography sx={{ mb: 2 }} color="text.secondary">
           {props.platform}
         </Typography>
         <Typography variant="body2">
           <Stack direction="row" spacing={1}>
             <Tooltip title="Overall Score" placement="top" arrow>
-              <Chip label={props.score} />
+              <Chip
+                sx={{
+                  backgroundColor: "#ffebee",
+                  color: "#e53935",
+                  border: "1px solid #e53935",
+                }}
+                label={props.score}
+              />
             </Tooltip>
             <Tooltip title="Editors choice" placement="top" arrow>
-              <Chip label={props.editors_choice} />
+              <Chip
+                sx={{
+                  backgroundColor: "#e8f5e9",
+                  color: "#43a047",
+                  border: "1px solid #43a047",
+                }}
+                label={props.editors_choice === "N" ? "No" : "Yes"}
+              />
             </Tooltip>
             <Tooltip title="Genre of the game" placement="top" arrow>
-              <Chip label={props.genre} />
+              <Chip
+                sx={{
+                  backgroundColor: "#e1f5fe",
+                  color: "#039be5",
+                  border: "1px solid #039be5",
+                }}
+                label={props.genre}
+              />
             </Tooltip>
           </Stack>
         </Typography>
