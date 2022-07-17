@@ -4,8 +4,13 @@ import ImportExportIcon from "@mui/icons-material/ImportExport";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import FilterContext from "../Context/FilterContext";
+import ViewList from "@mui/icons-material/ViewList";
+import IconButton from "@mui/material/IconButton";
+import GridOn from "@mui/icons-material/GridOn";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function FilterTools() {
+  const { grid, handleGrid } = useContext(FilterContext);
 
   return (
     <Box
@@ -14,9 +19,25 @@ export default function FilterTools() {
       }}
     >
       <Stack direction="row" spacing={2}>
-        {/* for selecting score  */}
-
+        {/* for sorting according to score  */}
         <ScoreFilter />
+
+        {/* for displaying in grid or list layout  */}
+        <IconButton
+          onClick={() => handleGrid()}
+          aria-label="layout"
+          size="large"
+        >
+          {grid ? (
+            <Tooltip title="List View">
+              <ViewList color="primary" />
+            </Tooltip>
+          ) : (
+            <Tooltip title="Grid View">
+              <GridOn color="primary" />
+            </Tooltip>
+          )}
+        </IconButton>
       </Stack>
     </Box>
   );
