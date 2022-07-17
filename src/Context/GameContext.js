@@ -9,7 +9,7 @@ export const GameProvider = ({children}) =>{
 
     // function for changing details state
     const updateDetails = (data) =>{
-        console.log(data, 'context data')
+        // console.log(data, 'context data')
         setDetails(data)
     }
 

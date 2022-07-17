@@ -8,7 +8,7 @@ export const SearchProvider = ({children}) =>{
 
     // function for changing the state when user types in the search input field
     const handleSearch = (value) =>{
-        console.log(value)
+        // console.log(value)
         setSearch(value)
     }
 

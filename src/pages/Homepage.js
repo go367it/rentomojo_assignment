@@ -28,7 +28,7 @@ const Homepage = () => {
     // calling api for data and updating the state
     axios(config)
       .then((res) => {
-        console.log(res.data.slice(1, res.data.length));
+        // console.log(res.data.slice(1, res.data.length));
         const data = res.data.slice(1, res.data.length);
 
         data.sort(function (a, b) {
@@ -38,7 +38,7 @@ const Homepage = () => {
         updateBackupDetails(data); // updating backupDetails global state
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
 

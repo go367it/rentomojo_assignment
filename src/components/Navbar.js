@@ -68,7 +68,7 @@ export default function Navbar() {
           searchResult.push(element);
         }
       });
-      console.log(searchResult);
+      // console.log(searchResult);
       updateDetails(searchResult);
     } 
     // when userfield is empty
@@ -94,10 +94,8 @@ export default function Navbar() {
               sx={{
                 cursor: "pointer",
               }}
-              onClick={() => console.log("hg")}
             >
               <SearchIcon
-                onClick={() => console.log("hg")}
                 sx={{
                   cursor: "pointer",
                 }}
