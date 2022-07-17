@@ -12,11 +12,12 @@ export default function DetailsCard(props) {
       variant="outlined"
       sx={{
         minWidth: 275,
-        border: '1px solid #f8bbd0'
+        border: '1px solid #29b6f6',
+        backgroundColor:'#e1f5fe'
       }}
     >
       <CardContent>
-        <Typography sx={{ color: "#f06292" }} variant="h5" component="div">
+        <Typography sx={{ color: "#03a9f4" }} variant="h5" component="div">
           {props.title}
         </Typography>
         <Typography sx={{ mb: 2 }} color="text.secondary">
